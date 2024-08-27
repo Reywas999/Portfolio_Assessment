@@ -6,6 +6,7 @@ Performs 5 actions:
 4) Calculates the daily sharpe ratio.
 5) Calculates the anualized sharpe ratio.
 \
+\
 You must input the ticker symbols you have in your portfolio, the date range you want to assess the protfolio over, the initial capital you have, and the 
 allotments for each of the tickers (in the same order -- I probably should create a dictionary Ticker:allotment, but this works for now)\
 \
