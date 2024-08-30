@@ -359,6 +359,9 @@ class FinancialApp:
         self.run_button.grid(row=2, column=0, columnspan=2, pady=10)
 
     def run_analysis(self):
+        # Hide the button after it is clicked
+        self.run_button.grid_remove()
+        
         fig1, fig2, Cummulitive_Return, Sharpe_Ratio, A_Sharpe_Ratio = self.analysis.run_all(start_date, end_date)
 
         self.display_plot(fig1, self.plot_frame1)
