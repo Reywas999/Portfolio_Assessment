@@ -359,7 +359,7 @@ class FinancialApp:
         self.run_button.grid(row=2, column=0, columnspan=2, pady=10)
 
     def run_analysis(self):
-        # Hide the button after it is clicked
+        # Hide the "Run Analysis" button after it is clicked
         self.run_button.grid_remove()
         
         fig1, fig2, Cummulitive_Return, Sharpe_Ratio, A_Sharpe_Ratio = self.analysis.run_all(start_date, end_date)
@@ -373,6 +373,41 @@ class FinancialApp:
 
         result_label = ttk.Label(self.result_frame, text=result_text)
         result_label.pack()
+
+        # Add new buttons after analysis is run
+        self.new_analysis_button = ttk.Button(self.root, text="Run a new analysis", command=self.restart_script)
+        self.new_analysis_button.grid(row=3, column=0, pady=10)
+
+        self.close_button = ttk.Button(self.root, text="Close app", command=self.root.destroy)
+        self.close_button.grid(row=3, column=1, pady=10)
+
+    def display_plot(self, fig, frame):
+        # Create a Matplotlib figure
+        figure = Figure(figsize=(5, 4), dpi=100)
+        ax = figure.add_subplot(111)
+
+        # Plot data on the Matplotlib figure
+        for trace in fig['data']:
+            ax.plot(trace['x'], trace['y'], label=trace['name'])
+
+        ax.set_title(fig['layout']['title']['text'])
+        ax.set_xlabel(fig['layout']['xaxis']['title']['text'])
+        ax.set_ylabel(fig['layout']['yaxis']['title']['text'])
+        ax.legend()
+
+        # Embed the Matplotlib figure in Tkinter
+        canvas = FigureCanvasTkAgg(figure, master=frame)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+        # Add Matplotlib toolbar
+        toolbar = NavigationToolbar2Tk(canvas, frame)
+        toolbar.update()
+        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+    def restart_script(self):
+        self.root.destroy()
+        main()
 
     def display_plot(self, fig, frame):
         # Create a Matplotlib figure
@@ -402,11 +437,11 @@ class FinancialApp:
 # In[ ]:
 
 
-if __name__ == "__main__":
+def main():
     root = tk.Tk()
     app = InvestmentApp(root)
     root.mainloop()
-
+    
     fa = FinancialAnalysis(Tickers, dates, Principle, Allocations)
     
     # Create a new Tk instance for FinancialApp
@@ -414,3 +449,5 @@ if __name__ == "__main__":
     financial_app = FinancialApp(new_root, fa)
     new_root.mainloop()
 
+if __name__ == "__main__":
+    main()
