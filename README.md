@@ -26,3 +26,4 @@ Non-app interactive charts:
 \
 App Output:\
 \
+![Screenshot 2024-08-30 160145](https://github.com/user-attachments/assets/732c5dcb-3649-4560-805a-82700de8e2dd)
