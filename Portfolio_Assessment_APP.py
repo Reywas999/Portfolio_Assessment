@@ -249,12 +249,12 @@ class FinancialAnalysis:
         fig = go.Figure()
 
         for col in df_top.columns:
-            fig.add_trace(go.Scatter(x=df_top.index, y=df_top[col], mode='lines', name=col))
+            fig.add_trace(go.Scatter(x=df_top.index, y=(df_top[col])*100, mode='lines', name=col))
 
         fig.update_layout(
             title="Adj Close over Time",
             xaxis_title="Date",
-            yaxis_title="Performance",
+            yaxis_title="Percent Gain",
             hovermode="x unified"
         )
 
@@ -312,9 +312,9 @@ class FinancialAnalysis:
 
         fig = go.Figure()
 
-        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['Portfolio'], mode='lines', name='Portfolio', line=dict(color='black')))
-        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['SPY'], mode='lines', name='SPY', line=dict(color='blue')))
-        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['Cum. Inflation'], mode='lines', name='Inflation', line=dict(color='red')))
+        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['Portfolio']*100, mode='lines', name='Portfolio', line=dict(color='black')))
+        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['SPY']*100, mode='lines', name='SPY', line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=df_combined.index, y=df_combined['Cum. Inflation']*100, mode='lines', name='Inflation', line=dict(color='red')))
 
         fig.update_layout(
             title="Port. Performance vs. SPY vs. Inflation",
