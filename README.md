@@ -18,7 +18,7 @@ The APP version of this script creates a simple UI for inputting variables and f
 \
 App Output:\
 \
-![Screenshot 2024-08-30 160145](https://github.com/user-attachments/assets/732c5dcb-3649-4560-805a-82700de8e2dd)
+![Screenshot 2024-08-30 163044](https://github.com/user-attachments/assets/83b4d5d2-abb7-4f9a-a63f-29a2af507c6d)
 \
 Non-app interactive charts:
 \
