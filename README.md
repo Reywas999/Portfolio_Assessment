@@ -16,14 +16,13 @@ allotments for each of the tickers (in the same order -- I probably should creat
 \
 The APP version of this script creates a simple UI for inputting variables and for viewing the analysis/charts.\
 \
+App Output:\
+\
+![Screenshot 2024-08-30 160145](https://github.com/user-attachments/assets/732c5dcb-3649-4560-805a-82700de8e2dd)
+\
 Non-app interactive charts:
 \
 ![Port_Assess](https://github.com/user-attachments/assets/367825c6-be55-4878-88eb-91415cf86659)
 \
 \
 ![Port_Assess_2](https://github.com/user-attachments/assets/86b357a0-1ce7-45e4-bc2e-4f9c1d505ed3)
-\
-\
-App Output:\
-\
-![Screenshot 2024-08-30 160145](https://github.com/user-attachments/assets/732c5dcb-3649-4560-805a-82700de8e2dd)
