@@ -134,7 +134,7 @@ class InvestmentApp:
     def validate_top_performers(self, top_n):
         top_n = self.top_performers_entry.get()
         tickers = self.tickers_entry.get().split(',')
-        if top_n.lower() in ['a', 'all'] or (top_n.isdigit() and 1 <= int(top_n) <= len(tickers)):
+        if top_n.lower() in ['a', 'all'] or (top_n.isdigit() and 1 <= int(top_n) <= len(Tickers)):
             return True
         else:
             return False
@@ -176,7 +176,7 @@ class InvestmentApp:
         
         top_n_valid = self.validate_top_performers(top_n)
         if top_n_valid == False:
-            messagebox.showerror(messagebox.showerror("Error", f"Invalid input. Please enter a number between 1 and {len(tickers)}, or 'a'/'all'."))
+            messagebox.showerror(messagebox.showerror("Error", f"Invalid input. Please enter a number between 1 and {len(Tickers)}, or 'a'/'all'."))
             return
 
         # Convert start_date and end_date to datetime objects
